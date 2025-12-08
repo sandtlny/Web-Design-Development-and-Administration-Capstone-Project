@@ -1,8 +1,8 @@
-/* Dynamic Class Management Application - Starter Styles */
+/* =========================================================
+   Dynamic Class Management Application - Full Stylesheet
+   ========================================================= */
 
-/* TODO: Add your custom styles here */
-
-/* Basic Reset */
+/* BASIC RESET */
 * {
     margin: 0;
     padding: 0;
@@ -13,87 +13,252 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     color: #333;
+    line-height: 1.6;
 }
 
-/* TODO: Style the login page */
+
+/* =========================================================
+   LOGIN PAGE
+   ========================================================= */
 .login-container {
-    /* Add styles for centering login box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .login-box {
-    /* Add styles for login form container */
+    width: 350px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* TODO: Style the header */
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 .main-header {
-    /* Add styles for main header */
+    background-color: #1e3a8a;
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
 .header-content {
-    /* Add styles for header content layout */
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* TODO: Style the dashboard */
+.header-content h1 {
+    font-size: 22px;
+}
+
+.header-content a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 8px 12px;
+    border: 1px solid white;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.header-content a:hover {
+    background: white;
+    color: #1e3a8a;
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
 .dashboard {
-    /* Add styles for dashboard container */
+    width: 90%;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
-/* TODO: Style forms */
+
+/* =========================================================
+   FORMS
+   ========================================================= */
 .form-group {
-    /* Add styles for form groups */
+    margin-bottom: 18px;
 }
 
 .form-group label {
-    /* Add styles for labels */
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    /* Add styles for form inputs */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
-/* TODO: Style buttons */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1e3a8a;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 .btn {
-    /* Add base button styles */
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .btn-primary {
-    /* Add primary button styles */
+    background: #1e3a8a;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #233f99;
 }
 
 .btn-secondary {
-    /* Add secondary button styles */
+    background: #6b7280;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #4b5563;
 }
 
 .btn-danger {
-    /* Add danger button styles */
+    background: #dc2626;
+    color: white;
 }
 
-/* TODO: Style class cards */
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+
+/* =========================================================
+   CLASS CARDS
+   ========================================================= */
 .classes-grid {
-    /* Add grid layout for classes */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
 }
 
 .class-card {
-    /* Add styles for individual class cards */
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    padding: 15px;
+    transition: transform 0.2s;
 }
 
-/* TODO: Style tables */
+.class-card:hover {
+    transform: translateY(-3px);
+}
+
+.class-card h3 {
+    margin-bottom: 10px;
+    color: #1e3a8a;
+}
+
+
+/* =========================================================
+   DATA TABLES
+   ========================================================= */
 .data-table {
-    /* Add styles for data tables */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-/* TODO: Style messages */
+.data-table th,
+.data-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+    background: #1e3a8a;
+    color: white;
+    text-align: left;
+}
+
+.data-table tr:hover {
+    background: #f0f0f0;
+}
+
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
 .error-message {
-    /* Add styles for error messages */
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 12px;
+    border-left: 4px solid #dc2626;
+    margin-bottom: 15px;
+    border-radius: 4px;
 }
 
 .success-message {
-    /* Add styles for success messages */
+    background: #d1fae5;
+    color: #047857;
+    padding: 12px;
+    border-left: 4px solid #10b981;
+    margin-bottom: 15px;
+    border-radius: 4px;
 }
 
-/* TODO: Add responsive design for mobile devices */
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
 @media (max-width: 768px) {
-    /* Add mobile-friendly styles */
+    .header-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .dashboard {
+        padding: 15px;
+    }
+
+    .class-card {
+        padding: 12px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 8px;
+    }
 }
+ 
