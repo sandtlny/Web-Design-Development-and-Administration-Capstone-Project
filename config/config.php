@@ -1,27 +1,96 @@
 <?php
-// TODO: Start session
+/* ==========================================================
+   Dynamic Class Management Application - CONFIG FILE
+   ========================================================== */
+
+// -----------------------------------------
+// Start Session
+// -----------------------------------------
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 
-// Database configuration
+// -----------------------------------------
+// Database Configuration
+// -----------------------------------------
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$db = 'dcma';
-
-// TODO: Create database connection
+$db   = 'dcma';
 
 
-// TODO: Check connection and handle errors
+// -----------------------------------------
+// Create Database Connection
+// -----------------------------------------
+$conn = new mysqli($host, $user, $pass, $db);
 
 
-// TODO: Set charset to utf8
+// -----------------------------------------
+// Check Connection and Handle Errors
+// -----------------------------------------
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
+}
 
 
-// TODO: Create helper functions
-// - isLoggedIn(): Check if user is logged in
-// - hasRole($role): Check if user has specific role
-// - requireLogin(): Redirect if not logged in
-// - requireRole($role): Redirect if user doesn't have required role
-// - sanitize($data): Sanitize user input to prevent SQL injection
+// -----------------------------------------
+// Set Charset to UTF-8
+// -----------------------------------------
+$conn->set_charset("utf8");
+
+
+// ==========================================================
+// HELPER FUNCTIONS
+// ==========================================================
+
+// -----------------------------------------
+// Check if user is logged in
+// -----------------------------------------
+function isLoggedIn() {
+    return isset($_SESSION['user_id']);
+}
+
+
+// -----------------------------------------
+// Check if user has a specific role
+// -----------------------------------------
+function hasRole($role) {
+    return isset($_SESSION['role']) && $_SESSION['role'] === $role;
+}
+
+
+// -----------------------------------------
+// Require login to access a page
+// -----------------------------------------
+function requireLogin() {
+    if (!isLoggedIn()) {
+        header("Location: login.php");
+        exit();
+    }
+}
+
+
+// -----------------------------------------
+// Require specific role to access a page
+// -----------------------------------------
+function requireRole($role) {
+    requireLogin(); // First check user is logged in
+
+    if (!hasRole($role)) {
+        header("Location: unauthorized.php");
+        exit();
+    }
+}
+
+
+// -----------------------------------------
+// Sanitize user input to prevent SQL injection
+// -----------------------------------------
+function sanitize($data) {
+    global $conn;
+    return mysqli_real_escape_string($conn, trim($data));
+}
 
 ?>
+ 
